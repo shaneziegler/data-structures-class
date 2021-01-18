@@ -83,3 +83,28 @@ print(do_something)
 # Now go back to generating more even numbers.
 for i in range(100):
     print(next(my_gen))
+
+
+def prod(a,b):
+    # TODO change output to the product of a and b
+    output = a * b
+    return output
+    
+def fact_gen():
+    i = 1
+    n = i
+    while True:
+        output = prod(n, i)
+        yield output
+        # TODO: update i and n
+        # Hint: i is a successive integer and n is the previous product
+        i += 1
+        n = output
+
+
+# Test block
+my_gen = fact_gen()
+num = 5
+for i in range(num):
+    print(next(my_gen))
+    
