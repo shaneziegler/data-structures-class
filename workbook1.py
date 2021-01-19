@@ -62,6 +62,8 @@ print(when_offered(courses, 'bio893'))
 # Correct result: 
 # []
 
+# ################################################ #
+
 # Definition of the generator to produce even numbers.
 def all_even():
     n = 0
@@ -109,10 +111,8 @@ for i in range(num):
     print(next(my_gen))
 
 
-
-
-
-
+# ################################################ #
+# Sudoku puzzle checker
 correct = [[1,2,3],
            [2,3,1],
            [3,1,2]]
@@ -140,39 +140,51 @@ incorrect4 = [['a','b','c'],
 incorrect5 = [ [1, 1.5],
                [1.5, 1]]
                
+correct3 = [[1,2,3],
+           [3,1,2],
+           [2,3,1]]
+
 # Define a function check_sudoku() here:
 def check_sudoku(puzzle):
-    n = len(puzzle)
+    # Check each row to make sure number only appears once
+    puzzle_size = len(puzzle)
     for row in puzzle:
-        for i in range(n):
+        for i in range(puzzle_size):
             if row.count(i+1) != 1:
                 return False
+    #Transpose sudoku grid columns to rows        
     puzzle2 = []
-    newrow =[]
-    for x in range(n):
-        for y in range(n):
-            z = puzzle[x][y] 
-        puzzel2.append(puzzle[i])
+    for y in range(puzzle_size):
+        newrow = []
+        for x in range(puzzle_size):
+            newrow.append(puzzle[x][y])
+        puzzle2.append(newrow)
+    # Check each row(previously columns) to make sure number only appears once
+    for row in puzzle2:
+        for i in range(puzzle_size):
+            if row.count(i+1) != 1:
+                return False
     return True
-
 
 
     
     
 print(check_sudoku(incorrect))
 #>>> False
-
 print(check_sudoku(correct))
 #>>> True
+print(check_sudoku(correct3))
+#>>> True
 
-#print(check_sudoku(incorrect2))
+print(check_sudoku(incorrect2))
 #>>> False
 
-#print(check_sudoku(incorrect3))
+print(check_sudoku(incorrect3))
 #>>> False
 
-#print(check_sudoku(incorrect4))
+print(check_sudoku(incorrect4))
 #>>> False
 
-#print(check_sudoku(incorrect5))
+print(check_sudoku(incorrect5))
 #>>> False
+# ################################################ #
