@@ -287,3 +287,25 @@ test()
 # {'Michael': 11, 'Erica': 72, 'Carol': 36, 'Lisa': 37, 'Lawrence': 87, 'Joseph': 25, 'Margaret': 35, 'Andrew': 13, 'Dusty': 53, 'Robert': 89}
 # August
 # ################################################### #
+
+def leapyear(year):
+    if year % 4 == 0:
+        print(f"{year} is a leap year")
+    else:
+        print(f'{year} - NA')
+
+
+leapyear(2021)
+leapyear(2020)
+leapyear(2019)
+leapyear(2018)
+leapyear(2017)
+leapyear(2016)
+leapyear(2015)
+leapyear(2014)
+leapyear(2013)
+leapyear(2000)
+leapyear(1992)
+leapyear(1996)
+leapyear(1989)
+# ################################################### #
