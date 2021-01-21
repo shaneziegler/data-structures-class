@@ -25,8 +25,6 @@ def nextDay(year, month, day):
         if month == 12:
             return year + 1, 1, 1
         else:
-            if daysInThisMonth == 29:
-                print(year)
             return year, month + 1, 1
         
 def dateIsBefore(year1, month1, day1, year2, month2, day2):
