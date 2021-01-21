@@ -14,12 +14,15 @@ def isLeapYear(year):
     else:
         return False
 
-def nextDay(year, month, day):
+def daysInMonth(year, month):
     daysInAllMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
     daysInThisMonth = daysInAllMonths[month-1]
     if isLeapYear(year) and (month == 2):
         daysInThisMonth = 29    
-    if day < daysInThisMonth:
+    return daysInThisMonth
+
+def nextDay(year, month, day):
+    if day < daysInMonth(year, month)    :
         return year, month, day + 1
     else:
         if month == 12:
