@@ -4,15 +4,19 @@
 # in addition to the correct number of days in each month.
 
 def isLeapYear(year):
-    if (year mod 4) == 0:
+    if (year % 100) == 0:
+        if (year % 400) == 0:
+            return True
+        else:
+            return False
+    if (year % 4) == 0:
         return True
     else:
         return False
 
 def nextDay(year, month, day):
-    """Simple version: assume every month has 30 days"""
     daysInAllMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
-    daysInThisMonth = daysInAllMonths[month]
+    daysInThisMonth = daysInAllMonths[month-1]
     if isLeapYear(year) and (month == 2):
         daysInThisMonth = 29    
     if day < daysInThisMonth:
@@ -21,6 +25,8 @@ def nextDay(year, month, day):
         if month == 12:
             return year + 1, 1, 1
         else:
+            if daysInThisMonth == 29:
+                print(year)
             return year, month + 1, 1
         
 def dateIsBefore(year1, month1, day1, year2, month2, day2):
@@ -52,12 +58,14 @@ def test():
                   ((2011,6,30,2012,6,30), 366),
                   ((2011,1,1,2012,8,8), 585 ),
                   ((1900,1,1,1999,12,31), 36523)]
+
+  
     
     for (args, answer) in test_cases:
         result = daysBetweenDates(*args)
         if result != answer:
-            print "Test with data:", args, "failed"
+            print(f"Test with data: {args} failed")
         else:
-            print "Test case passed!"
+            print("Test case passed!")
 
 test()
