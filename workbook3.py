@@ -97,3 +97,13 @@ x = 1, 2, 3
 tuple_test = 1, 2, 3
 # Tuple unpacking
 x, y, z = tuple_test
+#Sets
+#Sets are unordered, unique, and muttable
+some_list = [1, 2, 1, 3]
+some_set = set(some_list)
+print(some_set)
+# {1, 2, 3}
+some_set.add(4)
+print(some_set)
+print(some_set.pop())
+#returns random element in the set
