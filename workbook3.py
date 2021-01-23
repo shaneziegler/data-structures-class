@@ -88,3 +88,12 @@ print(name)
 letters = ['a', 'b', 'c', 'd']
 letters.append('z')
 print(letters)
+#tuples
+x = (1, 2, 3)
+x = 1, 2, 3
+#immutable
+#ordered
+# can omit parathesis
+tuple_test = 1, 2, 3
+# Tuple unpacking
+x, y, z = tuple_test
