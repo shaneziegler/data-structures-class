@@ -65,3 +65,26 @@ eclipse_dates = ['June 21, 2001', 'December 4, 2002', 'November 23, 2003',
 # TODO: Modify this line so it prints the last three elements of the list
 eclipse_dates = eclipse_dates[-3:]
 print(eclipse_dates)
+
+sentence1 = "I wish to register a complaint."
+sentence2 = ["I", "wish", "to", "register", "a", "complaint", "."]
+# replace two items in list at once
+sentence2[0:2] = ["We", "want"]
+
+#Lists
+# Useful Functions for Lists I
+# len() returns how many elements are in a list.
+# max() returns the greatest element of the list. How the greatest element is determined depends on what type objects are in the list. The maximum element in a list of numbers is the largest number. The maximum elements in a list of strings is element that would occur last if the list were sorted alphabetically. This works because the the max function is defined in terms of the greater than comparison operator. The max function is undefined for lists that contain elements from different, incomparable types.
+# min() returns the smallest element in a list. min is the opposite of max, which returns the largest element in a list.
+# sorted() returns a copy of a list in order from smallest to largest, leaving the list unchanged.
+# join method
+# Join is a string method that takes a list of strings as an argument, and returns a string consisting of the list elements joined by a separator string.
+new_str = "\n".join(["fore", "aft", "starboard", "port"])
+print(new_str)
+name = "-".join(["García", "O'Kelly"])
+print(name)
+# append method
+# A helpful method called append adds an element to the end of a list.
+letters = ['a', 'b', 'c', 'd']
+letters.append('z')
+print(letters)
