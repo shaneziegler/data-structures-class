@@ -137,3 +137,37 @@ nearest_square = num**2
 
 print(nearest_square)
 
+#Exactly 140 char long newsticker
+#Use break statement
+# HINT: modify the headlines list to verify your loop works with different inputs
+headlines = ["Local Bear Eaten by Man",
+             "Legislature Announces New Laws",
+             "Peasant Discovers Violence Inherent in System",
+             "Cat Rescues Fireman Stuck in Tree",
+             "Brave Knight Runs Away",
+             "Papperbok Review: Totally Triffic"]
+
+news_ticker = ""
+# write your loop here
+for headline in headlines:
+    news_ticker += headline + " "
+    if len(news_ticker) > 140:
+        news_ticker = news_ticker[:140]
+        break
+
+print(news_ticker)
+
+## Your code should check if each number in the list is a prime number
+check_prime = [26, 39, 51, 53, 57, 79, 85]
+
+## write your code here
+## HINT: You can use the modulo operator to find a factor
+for prime in check_prime:
+    for num in range(2, prime):
+        if prime % num == 0:
+            print(str(prime) + " is not a prime number")
+            print(str(prime) + " is a factor of " + str(num))
+            break
+        if num == (prime - 1):
+            print(str(prime) + " is a prime number")
+            break
