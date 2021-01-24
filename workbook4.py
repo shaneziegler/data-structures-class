@@ -78,3 +78,62 @@ for object, count in basket_items.items():
         not_fruit_count += count
 
 print("The number of fruits is {}.  There are {} objects that are not fruits.".format(fruit_count, not_fruit_count))
+
+#factorial while loop
+# number to find the factorial of
+number = 6   
+
+# start with our product equal to one
+product = 1
+
+# track the current number being multiplied
+current = 1
+
+# write your while loop here
+while current <= number:
+    # multiply the product so far by the current number
+    product *= current
+    
+    # increment current with each iteration until it reaches number
+    current += 1
+
+
+# print the factorial of number
+print(product)
+
+#For loop factorial
+# number to find the factorial of
+number = 6   
+
+# start with our product equal to one
+product = 1
+
+# write your for loop here
+for current in range(1,number+1):
+    # multiply the product so far by the current number
+    product *= current
+    
+# print the factorial of number
+print(product)
+
+#Nearest Square
+#My solution
+limit = 40
+
+# write your while loop here
+start_num = 1
+while (start_num ** 2) < limit:
+    nearest_square = start_num ** 2
+    start_num += 1
+    
+print(nearest_square)
+#Udacity Solution
+limit = 40
+
+num = 0
+while (num+1)**2 < limit:
+    num += 1
+nearest_square = num**2
+
+print(nearest_square)
+
