@@ -74,3 +74,25 @@ while lets_party == 'y':
         print(message.format(people, cookies_each, leftovers))
 
     lets_party = input("\nWould you like to party more? (y or n) ")
+
+
+###
+with open('my_path/my_file.txt', 'r') as f:
+    file_data = f.read()'
+
+###
+def create_cast_list(filename):
+    cast_list = []
+    #use with to open the file filename
+    #use the for loop syntax to process each line
+    #and add the actor name to cast_list
+    with open(filename, 'r') as f:
+        for line in f:
+           cast_list.append(line.split(',', maxsplit=1)[0])
+    return cast_list
+
+cast_list = create_cast_list('flying_circus_cast.txt')
+for actor in cast_list:
+    print(actor)
+
+###
