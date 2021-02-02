@@ -20,6 +20,10 @@ def generate_password():
     three_words = []
     three_words = random.sample(word_list, k=3)
     return three_words[0] + three_words[1] + three_words[2]
+
+## Udacity solution
+# def generate_password():
+#     return ''.join(random.sample(word_list,3))
     
     
 # test your function
