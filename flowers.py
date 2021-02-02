@@ -3,10 +3,9 @@
 # HINT: create a dictionary from flowers.txt
 flowers = {}
 with open('flowers.txt', 'r') as f:
-    for line in f:
-        str = f.readline()
+    for str in f:
         key = str[0]
-        value = str[3:]
+        value = str[3:len(str)-1]
         flowers[key] = value
         print(key)
         print(value)
@@ -18,6 +17,4 @@ def get_user():
 # print the desired output
 
 name = get_user()
-print("Unique flower name with the first letter:")
-print(flowers[name[0].upper()].value)
-
+print("Unique flower name with the first letter: " + flowers[name[0].upper()])
