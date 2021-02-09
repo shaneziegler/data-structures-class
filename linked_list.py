@@ -88,3 +88,32 @@ test_function(input_list, head)
 input_list = []
 head = create_linked_list(input_list)
 test_function(input_list, head)
+
+###
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def append(self, value):
+        if self.head is None:
+            self.head = Node(value)
+            return
+        
+        # Move to the tail (the last node)
+        node = self.head
+        while node.next:
+            node = node.next
+        
+        node.next = Node(value)
+        return
+    
+    def to_list(self):
+        
+        # TODO: Write function to turn Linked List into Python List
+        pylist = []
+        node = self.head
+        while node is not None:
+            pylist.append(node.value)
+            node = node.next
+        return pylist
+        
