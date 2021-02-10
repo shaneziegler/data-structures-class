@@ -30,23 +30,20 @@ class LinkedList:
         return str([v for v in self])
 
     
+def reverse(linked_list):
+    rev_list = LinkedList()
     
+    node = linked_list.head
+    new_node = Node(node.value)
+    rev_list.head = new_node
     
-    
-    def reverse(linked_list):
-    """
-    Reverse the inputted linked list
-
-    Args:
-       linked_list(obj): Linked List to be reversed
-    Returns:
-       obj: Reveresed Linked List
-    """
-    
-    # TODO: Write your function to reverse linked lists here
-    
-    pass
-
+    while node.next is not None:
+        temp_node = new_node
+        node = node.next
+        new_node = Node(node.value)
+        new_node.next = temp_node
+        rev_list.head = new_node
+    return rev_list
 
 llist = LinkedList()
 for value in [4,2,5,1,-3,0]:
