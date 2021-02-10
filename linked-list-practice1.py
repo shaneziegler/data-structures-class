@@ -174,8 +174,10 @@ def size(self):
     if self.head is None:
         return count
     node = self.head
+    count += 1
     while node.next is not None:
         count += 1
+        node= node.next
     return count
 
 LinkedList.size = size
