@@ -1,5 +1,6 @@
 # Flattening a nested linked list¶
-# Suppose you have a linked list where the value of each node is a sorted linked list (i.e., it is a nested list). Your task is to flatten this nested list—that is, to combine all nested lists into a single (sorted) linked list.
+# Suppose you have a linked list where the value of each node is a sorted linked list (i.e., it is a nested list). 
+# Your task is to flatten this nested list—that is, to combine all nested lists into a single (sorted) linked list.
 
 # First, we'll need some code for generating nodes and a linked list:
 
@@ -59,14 +60,36 @@ def merge(list1, list2):
     The arguments list1, list2 must be of type LinkedList.
     The merge() function must return an instance of LinkedList.
     '''
-    pass
+    merged_linked_list = LinkedList(Node(99))
+
+    head1 = list1.head
+    head2 = list2.head
+
+    while head1 and head2:
+        if head1.value < head2.value:
+            insert_value = head1.value
+            head1 = head1.next
+        else:
+            insert_value = head2.value
+            head2 = head2.next
+
+    merged_linked_list.append(insert_value)
+
+    return merged_linked_list
+
+
+
+
+
 
 
 ''' In a NESTED LinkedList object, each node will be a simple LinkedList in itself'''
 class NestedLinkedList(LinkedList):
     def flatten(self):
         # TODO: Implement this method to flatten the linked list in ascending sorted order.
-        pass
+        x = merge(self.value, self.value.next)
+
+        return x
 
 # First Test scenario
 ''' Create a simple LinkedList'''
@@ -82,3 +105,10 @@ second_linked_list.append(4)
 nested_linked_list = NestedLinkedList(Node(linked_list)) # <-- Notice that we are passing a Node made up of a simple LinkedList object
 nested_linked_list.append(second_linked_list) # <-- Notice that we are passing a LinkedList object in the append() function here
 
+# solution = nested_linked_list.flatten() # <-- returns A LinkedList object
+
+solution = nested_linked_list.flatten() # <-- returns A LinkedList object
+expected_list = [1,2,3,4,5] # <-- Python list
+
+# Convert the "solution" into a Python list and compare with another Python list
+assert solution.to_list() == expected_list, f"list contents: {solution.to_list()}"
