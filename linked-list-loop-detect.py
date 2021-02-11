@@ -47,16 +47,16 @@ def iscircular(linked_list):
     slow = linked_list.head
     fast = linked_list.head
 
-    if slow.next is None:
+    if slow is None or slow.next is None:
         return False
 
     while (slow.next is not None) and (fast.next is not None):
         slow = slow.next
-        fast = fast.next
+        fast = fast.next.next
         if fast.next is None:
             return False
         fast = fast.next
-        if slow = fast:
+        if slow == fast:
             return True
 
 # Test Cases
@@ -66,7 +66,7 @@ small_loop = LinkedList([0])
 small_loop.head.next = small_loop.head
 
 print ("Pass" if iscircular(list_with_loop) else "Fail")                  # Pass
-print ("Pass" if iscircular(LinkedList([-4, 7, 2, 5, -1])) else "Fail")   # Fail
+print ("Pass" if iscircular(LinkedList([-4, 7, 2, 5])) else "Fail")   # Fail
 print ("Pass" if iscircular(LinkedList([1])) else "Fail")                 # Fail
 print ("Pass" if iscircular(small_loop) else "Fail")                      # Pass
 print ("Pass" if iscircular(LinkedList([])) else "Fail")                  # Fail
