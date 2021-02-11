@@ -44,8 +44,20 @@ def iscircular(linked_list):
     """
     
     # TODO: Write function to check if linked list is circular
-    
-    pass
+    slow = linked_list.head
+    fast = linked_list.head
+
+    if slow.next is None:
+        return False
+
+    while (slow.next is not None) and (fast.next is not None):
+        slow = slow.next
+        fast = fast.next
+        if fast.next is None:
+            return False
+        fast = fast.next
+        if slow = fast:
+            return True
 
 # Test Cases
 
