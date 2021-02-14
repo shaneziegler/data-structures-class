@@ -60,20 +60,22 @@ def merge(list1, list2):
     The arguments list1, list2 must be of type LinkedList.
     The merge() function must return an instance of LinkedList.
     '''
-    # merged_linked_list = LinkedList(Node(99)) 
+    merged_linked_list = LinkedList(Node(99)) 
+    # x = list1
+    # y = list2
 
     head1 = list1.head
     head2 = list2.head
 
     while head1 and head2:
-        if head1.value < head2.value:
-            insert_value = head1.value
-            head1 = head1.next
+        if head1.value < list2.head.value:
+            insert_value = list1.head.value
+            head1 = list1.head.next
         else:
-            insert_value = head2.value
-            head2 = head2.next
+            insert_value = list2.head.value
+            head2 = list2.head.next
 
-    merged_linked_list.append(insert_value)
+        merged_linked_list.append(insert_value)
 
     return merged_linked_list
 
@@ -87,7 +89,7 @@ def merge(list1, list2):
 class NestedLinkedList(LinkedList):
     def flatten(self):
         # TODO: Implement this method to flatten the linked list in ascending sorted order.
-        x = merge(self.value, self.value.next)
+        x = merge(self.head.value, self.head.next.value)
 
         return x
 
