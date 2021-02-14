@@ -60,7 +60,7 @@ def merge(list1, list2):
     The arguments list1, list2 must be of type LinkedList.
     The merge() function must return an instance of LinkedList.
     '''
-    merged_linked_list = LinkedList(Node(99))
+    # merged_linked_list = LinkedList(Node(99)) 
 
     head1 = list1.head
     head2 = list2.head
