@@ -60,22 +60,32 @@ def merge(list1, list2):
     The arguments list1, list2 must be of type LinkedList.
     The merge() function must return an instance of LinkedList.
     '''
-    merged_linked_list = LinkedList(Node(99)) 
+    # merged_linked_list = LinkedList() 
     # x = list1
     # y = list2
 
     head1 = list1.head
     head2 = list2.head
 
-    while head1 and head2:
-        if head1.value < list2.head.value:
-            insert_value = list1.head.value
-            head1 = list1.head.next
+    first = True
+    while head1 or head2:
+        if not head1:
+            insert_value = head2.value
+            head2 = head2.next
+        elif not head2:
+            insert_value = head1.value
+            head1 = head1.next
+        elif head1.value < head2.value:
+            insert_value = head1.value
+            head1 = head1.next
         else:
-            insert_value = list2.head.value
-            head2 = list2.head.next
-
-        merged_linked_list.append(insert_value)
+            insert_value = head2.value
+            head2 = head2.next
+        if first:
+            merged_linked_list = LinkedList(Node(insert_value))
+            first = False
+        else:
+            merged_linked_list.append(insert_value)
 
     return merged_linked_list
 
@@ -111,6 +121,6 @@ nested_linked_list.append(second_linked_list) # <-- Notice that we are passing a
 
 solution = nested_linked_list.flatten() # <-- returns A LinkedList object
 expected_list = [1,2,3,4,5] # <-- Python list
-
+print(f"list contents: {solution.to_list()}")
 # Convert the "solution" into a Python list and compare with another Python list
 assert solution.to_list() == expected_list, f"list contents: {solution.to_list()}"
