@@ -104,6 +104,19 @@ class NestedLinkedList(LinkedList):
             merged_list = merge(merged_list, list2.value)
         return merged_list
 
+    def flatten_recursive(self):
+        list1 = self.head
+        list2 = self.head.next
+        # merged_list = LinkedList(Node)
+        if list2:
+            merged_list = merge(list1.value, list2.value)
+            return merged_list
+        elif list1:
+            return merged_list
+        else:
+            return merged_list
+
+
 # First Test scenario
 ''' Create a simple LinkedList'''
 linked_list = LinkedList(Node(1)) # <-- Notice that we are passing a Node made up of an integer
@@ -129,3 +142,6 @@ expected_list = [1,2,3,4,5] # <-- Python list
 print(f"list contents: {solution.to_list()}")
 # Convert the "solution" into a Python list and compare with another Python list
 assert solution.to_list() == expected_list, f"list contents: {solution.to_list()}"
+
+solution2 = nested_linked_list.flatten_recursive()
+print(f"list contents: {solution2.to_list()}")
