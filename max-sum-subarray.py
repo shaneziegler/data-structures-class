@@ -18,7 +18,7 @@ def max_sum_subarray(arr):
 
     sum = 0
     max_sum = 0
-    for i, value in enumerate(arr):
+    for i in range(len(arr)):
         sum = 0
         for x in range(i, len(arr)):
             sum += arr[x]
