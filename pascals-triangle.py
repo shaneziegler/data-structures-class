@@ -3,8 +3,27 @@ def nth_row_pascal(n):
     :param: - n - index (0 based)
     return - list() representing nth row of Pascal's triangle
     """
+    triangle = []
 
-    def test_function(test_case):
+    current_row = [1]
+    triangle.append(current_row)
+
+    current_row = [1,1]
+    triangle.append(current_row)
+
+    for i in range(n-1):
+        current_row = []
+        current_row.append(1)
+        for j in range(i+1):
+            current_row.append(triangle[i+1][j] + triangle[i+1][j+1])
+        current_row.append(1)
+        triangle.append(current_row)
+
+    return triangle[n]
+
+
+
+def test_function(test_case):
     n = test_case[0]
     solution = test_case[1]
     output = nth_row_pascal(n)
