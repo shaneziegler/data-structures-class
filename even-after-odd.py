@@ -1,10 +1,11 @@
-Problem Statement
-Given a linked list with integer data, arrange the elements in such a manner that all nodes with even numbers are placed after odd numbers. Do not create any new nodes and avoid using any other data structure. The relative order of even and odd elements must not change.
+# Problem Statement
+# Given a linked list with integer data, arrange the elements in such a manner that all nodes with even numbers are placed after odd numbers.
+#  Do not create any new nodes and avoid using any other data structure. The relative order of even and odd elements must not change.
 
-Example:
+# Example:
 
-linked list = 1 2 3 4 5 6
-output = 1 3 5 2 4 6
+# linked list = 1 2 3 4 5 6
+# output = 1 3 5 2 4 6
 
 class Node:
     def __init__(self, data):
@@ -16,7 +17,32 @@ def even_after_odd(head):
     :param - head - head of linked list
     return - updated list with all even elements are odd elements
     """
-    pass
+
+
+    moved = False
+    end = False
+    prev_node = None
+
+
+    if not head.next:
+        end = True
+    
+    curr_node = head
+    while not end:
+        lnode = curr_node
+        rnode = curr_node.next
+        if (lnode.value % 2 == 1) and (rnode.value % 2 == 0): # If odd number on left and even on right
+            lnode.next = rnode.next
+            rnode.next = lnode
+            moved = True
+        else:
+            curr_node = curr_node.next
+        if not curr_node.next:
+            end = True 
+         
+            
+
+    
 
 # helper functions for testing purpose
 def create_linked_list(arr):
@@ -78,4 +104,4 @@ arr = [2, 4, 6, 8]
 solution = [2, 4, 6, 8]
 head = create_linked_list(arr)
 test_case = [head, solution]
-test_function(test_case)
+test_function(test_case)    
