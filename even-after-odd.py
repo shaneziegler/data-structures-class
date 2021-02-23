@@ -18,23 +18,19 @@ def even_after_odd(head):
     return - updated list with all even elements are odd elements
     """
 
-
     moved = True
     end = False
-
     if not head.next:
-        end = True
+        moved = False
 
     while moved:
         moved = False
         curr_node = head
         prev_node = None
         end = False
-        while not end:
+        while curr_node.next:
             lnode = curr_node
-            lnode_value = lnode.data
             rnode = curr_node.next
-            rnode_value = rnode.data
             if (lnode.data % 2 == 0) and (rnode.data % 2 == 1): # If even number on left and odd on right
                 lnode.next = rnode.next
                 rnode.next = lnode
@@ -48,9 +44,6 @@ def even_after_odd(head):
             else:
                 prev_node = curr_node
                 curr_node = curr_node.next
-            if not curr_node.next:
-                end = True 
-    
     return head
             
 
