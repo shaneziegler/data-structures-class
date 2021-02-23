@@ -19,27 +19,39 @@ def even_after_odd(head):
     """
 
 
-    moved = False
+    moved = True
     end = False
-    prev_node = None
-
 
     if not head.next:
         end = True
+
+    while moved:
+        moved = False
+        curr_node = head
+        prev_node = None
+        end = False
+        while not end:
+            lnode = curr_node
+            lnode_value = lnode.data
+            rnode = curr_node.next
+            rnode_value = rnode.data
+            if (lnode.data % 2 == 0) and (rnode.data % 2 == 1): # If even number on left and odd on right
+                lnode.next = rnode.next
+                rnode.next = lnode
+                moved = True
+                if not prev_node:
+                    head = rnode
+                else:
+                    prev_node.next = rnode
+                prev_node = rnode
+                curr_node = lnode
+            else:
+                prev_node = curr_node
+                curr_node = curr_node.next
+            if not curr_node.next:
+                end = True 
     
-    curr_node = head
-    while not end:
-        lnode = curr_node
-        rnode = curr_node.next
-        if (lnode.value % 2 == 1) and (rnode.value % 2 == 0): # If odd number on left and even on right
-            lnode.next = rnode.next
-            rnode.next = lnode
-            moved = True
-        else:
-            curr_node = curr_node.next
-        if not curr_node.next:
-            end = True 
-         
+    return head
             
 
     
