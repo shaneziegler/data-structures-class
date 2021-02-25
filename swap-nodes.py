@@ -37,7 +37,27 @@ TODO: complete this function and swap nodes present at position_one and position
 Do not create a new linked list
 """
 def swap_nodes(head, left_index, right_index):
-    pass
+
+    current = head
+    for curr_index in range(right_index+1):
+        if curr_index == left_index:
+            one_current = current
+        elif curr_index < left_index:
+            one_previous = current
+        if curr_index == right_index:
+            two_current = current
+        else:
+            two_previous = current
+            current = current.next
+
+    temp = one_current.next
+    two_previous.next = one_current
+    two_current.next = one_current.next
+    one_previous.next = two_current
+    one_current.next = temp
+
+    return head
+
 
 def test_function(test_case):
     head = test_case[0]
@@ -100,6 +120,7 @@ def print_linked_list(head):
     print()
 
 arr = [3, 4, 5, 2, 6, 1, 9]
+print(arr)
 head = create_linked_list(arr)
 left_index = 3
 right_index = 4
@@ -108,6 +129,7 @@ test_case = [head, left_index, right_index]
 updated_head = test_function(test_case)
 
 arr = [3, 4, 5, 2, 6, 1, 9]
+print(arr)
 left_index = 2 
 right_index = 4
 head = create_linked_list(arr)
@@ -115,6 +137,7 @@ test_case = [head, left_index, right_index]
 updated_head = test_function(test_case)
 
 arr = [3, 4, 5, 2, 6, 1, 9]
+print(arr)
 left_index = 0
 right_index = 1
 head = create_linked_list(arr)
