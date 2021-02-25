@@ -21,7 +21,39 @@ def skip_i_delete_j(head, i, j):
     :param: j - next `j` nodes that are to be deleted
     return - return the updated head of the linked list
     """
-    pass
+    if head is None:
+        return head
+
+    current = head
+    skip_count = 0
+    delete_count = 0
+    skip_mode = True
+    delete_mode = False
+    while current:
+        if skip_mode:
+            prev_node = current
+            current = current.next
+            skip_count += 1
+            if skip_count == i:
+                delete_mode = True
+                skip_count = 0
+                x_node = prev_node
+        if delete_mode:
+            prev_node = current
+            if current.next:
+                x_node.next = current.next
+                delete_count += 1
+                if delete_count == j:
+                    skip_mode = True
+                    delete_count = 0
+            else:
+                return current
+
+
+        
+
+
+    return current
 
 # helper functions for testing purpose
 def create_linked_list(arr):
