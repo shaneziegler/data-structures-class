@@ -36,24 +36,25 @@ def skip_i_delete_j(head, i, j):
             skip_count += 1
             if skip_count == i:
                 delete_mode = True
+                skip_mode = False
                 skip_count = 0
-                x_node = prev_node
+                working_tail_node = prev_node
+            elif not current.next:
+                return head
         if delete_mode:
-            prev_node = current
-            if current.next:
-                x_node.next = current.next
-                delete_count += 1
-                if delete_count == j:
+            if current.next is not None:
+                if delete_count < j:
+                    working_tail_node.next = current.next
+                    delete_count += 1
+                    current = current.next
+                else:
                     skip_mode = True
+                    delete_mode = False
                     delete_count = 0
             else:
-                return current
-
-
-        
-
-
-    return current
+                working_tail_node.next = None
+                return head
+    return head
 
 # helper functions for testing purpose
 def create_linked_list(arr):
