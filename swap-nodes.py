@@ -39,6 +39,7 @@ Do not create a new linked list
 def swap_nodes(head, left_index, right_index):
 
     current = head
+    one_previous = None
     for curr_index in range(right_index+1):
         if curr_index == left_index:
             one_current = current
@@ -50,13 +51,15 @@ def swap_nodes(head, left_index, right_index):
             two_previous = current
             current = current.next
 
-    temp = one_current.next
+    temp = two_current.next
     two_previous.next = one_current
     two_current.next = one_current.next
-    one_previous.next = two_current
     one_current.next = temp
-
-    return head
+    if not one_previous:
+        return two_current
+    else:    
+        one_previous.next = two_current
+        return head
 
 
 def test_function(test_case):
