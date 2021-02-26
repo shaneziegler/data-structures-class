@@ -147,3 +147,52 @@ head = create_linked_list(arr)
 test_case = [head, left_index, right_index]
 updated_head = test_function(test_case)
 
+# Solution
+# """
+# :param: head- head of input linked list
+# :param: `position_one` - indicates position (index) ONE
+# :param: `position_two` - indicates position (index) TWO
+# return: head of updated linked list with nodes swapped
+# """
+# def swap_nodes(head, position_one, position_two):
+
+#     # If both the indices are same
+#     if position_one == position_two:
+#         return head
+    
+#     # Helper references
+#     one_previous = None
+#     one_current = None
+
+#     two_previous = None
+#     two_current = None
+
+#     current_index = 0
+#     current_node = head 
+#     new_head = None
+
+#     # LOOP - find out previous and current node at both the positions (indices)
+#     while current_node is not None:
+        
+#         # Position_one cannot be equal to position_two, 
+#         # so either one of them might be equal to the current_index
+#         if current_index == position_one:
+#             one_current = current_node
+        
+#         elif current_index == position_two:
+#             two_current = current_node
+#             break
+
+#         # If neither of the position_one or position_two are equal to the current_index
+#         if one_current is None:
+#             one_previous = current_node
+        
+#         two_previous = current_node
+        
+#         # increment both the current_index and current_node
+#         current_node = current_node.next         
+#         current_index += 1
+        
+
+#     # Loop ends
+    
