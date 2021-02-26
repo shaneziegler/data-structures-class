@@ -195,4 +195,21 @@ updated_head = test_function(test_case)
         
 
 #     # Loop ends
+
+    # '''SWAPPING LOGIC'''
+    # # We have identified the two nodes: one_current & two_current to be swapped, 
+    # # Make use of a temporary reference to swap the references
+    # two_previous.next = one_current
+    # temp = one_current.next
+    # one_current.next = two_current.next
+    # two_current.next = temp
     
+    # # if the node at first index is head of the original linked list
+    # if one_previous is None:
+    #     new_head = two_current
+    # else:
+    #     one_previous.next = two_current
+    #     new_head = head
+    # # Swapping logic ends
+    
+    # return new_head
