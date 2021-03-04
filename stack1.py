@@ -15,10 +15,16 @@ class Stack:
         self.num_elements = 0
 
     def push(self, data):
+        if self.next_index == len(self.arr):
+            print("Out of space! Increasing array capacity ...")
+            self._handle_stack_capacity_full()
         self.arr[self.next_index] = data
         self.next_index += 1
         self.num_elements += 1
 
+    def _handle_stack_capacity_full(self):
+        self.arr2 = [0 for _ in range(len(self.arr))]
+        self.arr = self.arr + self.arr2
 
 
 foo = Stack()
@@ -39,3 +45,8 @@ foo = Stack()
 foo.push("Test!")
 print(foo.arr)
 print("Pass" if foo.arr[0] == "Test!" else "Fail")
+
+for x in range(10):
+    foo.push(x)
+
+print(foo.arr)
