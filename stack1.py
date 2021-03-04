@@ -43,11 +43,8 @@ class Stack:
         return self.num_elements
 
     def is_empty(self):
-        if self.num_elements == 0:
-            return True
-        else:
-            return False
-            
+        return self.num_elements == 0
+
 
 
 
