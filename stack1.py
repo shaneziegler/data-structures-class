@@ -22,9 +22,33 @@ class Stack:
         self.next_index += 1
         self.num_elements += 1
 
+    # My version - works fine
+    # def _handle_stack_capacity_full(self):
+    #     self.arr2 = [0 for _ in range(len(self.arr))]
+    #     self.arr = self.arr + self.arr2
+    
+
+    # Udacity Version
     def _handle_stack_capacity_full(self):
-        self.arr2 = [0 for _ in range(len(self.arr))]
-        self.arr = self.arr + self.arr2
+        old_arr = self.arr
+
+        self.arr = [0 for _ in range( 2* len(old_arr))]
+        for index, element in enumerate(old_arr):
+            self.arr[index] = element
+
+# Add a size method that returns the current size of the stack
+# Add an is_empty method that returns True if the stack is empty and False otherwise
+
+    def size(self):
+        return self.num_elements
+
+    def is_empty(self):
+        if self.num_elements == 0:
+            return True
+        else:
+            return False
+            
+
 
 
 foo = Stack()
