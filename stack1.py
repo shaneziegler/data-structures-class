@@ -45,6 +45,12 @@ class Stack:
     def is_empty(self):
         return self.num_elements == 0
 
+# The last thing we need to do is add the pop method.
+# The method needs to:
+
+# Check if the stack is empty and, if it is, return None
+# Decrement next_index and num_elements
+# Return the item that is being "popped"
 
 
 
