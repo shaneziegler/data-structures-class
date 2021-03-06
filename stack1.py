@@ -22,8 +22,13 @@ class Stack:
         self.next_index += 1
         self.num_elements += 1
 
-    def pop(Self):
-        
+    def pop(self):
+        if self.is_empty():
+            return None
+        self.next_index -= 1
+        self.num_elements -= 1
+        return self.arr[self.next_index]
+
 
     # My version - works fine
     # def _handle_stack_capacity_full(self):
@@ -80,3 +85,8 @@ for x in range(10):
     foo.push(x)
 
 print(foo.arr)
+
+foo = Stack()
+foo.push("Test") # We first have to push an item so that we'll have something to pop
+print(foo.pop()) # Should return the popped item, which is "Test"
+print(foo.pop()) # Should return None, since there's nothing left in the stack
