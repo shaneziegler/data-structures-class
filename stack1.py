@@ -22,6 +22,9 @@ class Stack:
         self.next_index += 1
         self.num_elements += 1
 
+    def pop(Self):
+        
+
     # My version - works fine
     # def _handle_stack_capacity_full(self):
     #     self.arr2 = [0 for _ in range(len(self.arr))]
