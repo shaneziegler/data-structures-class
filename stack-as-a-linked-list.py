@@ -21,6 +21,8 @@ class Stack:
         self.num_elements += 1
 
     def pop(self):
+        if self.is_empty():
+            return None
         value = self.head.data
         self.head = self.head.next
         self.num_elements -= 1
