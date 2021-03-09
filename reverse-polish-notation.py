@@ -12,6 +12,10 @@
 # Given a postfix expression as input, evaluate and return the correct final answer.
 # Note: In Python 3, the division operator / is used to perform float division. So for this problem, you should use int() after every division to convert the answer to an integer.
 
+# 1. If a value appears next in the expression, push this value on to the stack.
+
+# 2. If an operator appears next, pop two items from the top of the stack and push the result of the operation on to the stack.
+
 class LinkedListNode:
 
     def __init__(self, data):
@@ -63,10 +67,25 @@ def evaluate_post_fix(input_list):
        int: Postfix expression solution
     """
     # TODO: Iterate over elements 
+    stack = Stack()
+    for x in input_list:
+        if x in ['+', '-', '/', '*']:
+            val1 = stack.pop()
+            val2 = stack.pop()
+            if x == '+':
+                val3 = val1 + val2
+            if x == '-':
+                val3 = val1 - val2
+            if x == '*':
+                val3 = val1 * val2
+            if x == '/':
+                val3 = val1 / val2
+            stack.push(val3)
+        else:
+            stack.push(x)
+    return stack.pop()
     
-    # TODO: Use stacks to control the element positions
     
-    pass
 
 def test_function(test_case):
     output = evaluate_post_fix(test_case[0])
