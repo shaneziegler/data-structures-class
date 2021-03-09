@@ -35,11 +35,14 @@ def equation_checker(equation):
         if x == '(':
             paran.push('L')
         elif x == ')':
-            paran.push('R')
+            if paran.size() == 0:
+                return False
+            paran.pop()
     # TODO: Return True if balanced and False if not
-
-    return True
+    return paran.size() == 0
     
 
 print ("Pass" if (equation_checker('((3^2 + 8)*(5/2))/(2+6)')) else "Fail")
 print ("Pass" if not (equation_checker('((3^2 + 8)*(5/2))/(2+6))')) else "Fail")
+print ("Pass" if not (equation_checker(')(3^2 + 8)*(5/2))/(2+6))')) else "Fail")
+print ("Pass" if not (equation_checker('(((3^2 + 8)*(5/2))/(2+6)')) else "Fail")
