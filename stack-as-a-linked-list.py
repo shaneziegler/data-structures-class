@@ -27,7 +27,7 @@ class Stack:
         return value
 
     def is_empty(self):
-        return self.head is None
+        return self.num_elements == 0
 
     def size(self):
         return self.num_elements
