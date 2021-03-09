@@ -103,3 +103,31 @@ test_function(test_case_2)
 
 test_case_3 = [["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"], 22]
 test_function(test_case_3)
+
+
+# def evaluate_post_fix(input_list):
+#     stack = Stack()
+#     for element in input_list:
+#         if element == '*':
+#             second = stack.pop()
+#             first = stack.pop()
+#             output = first * second
+#             stack.push(output)
+#         elif element == '/':
+#             second = stack.pop()
+#             first = stack.pop()
+#             output = int(first / second)
+#             stack.push(output)
+#         elif element == '+':
+#             second = stack.pop()
+#             first = stack.pop()
+#             output = first + second
+#             stack.push(output)
+#         elif element == '-':
+#             second = stack.pop()
+#             first = stack.pop()
+#             output = first - second
+#             stack.push(output)
+#         else:
+#             stack.push(int(element))
+#     return stack.pop()
