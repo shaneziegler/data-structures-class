@@ -1,16 +1,29 @@
+# Build a stack using built in python array methods
 class Stack:
     def __init__(self):
-         # TODO: Initialize the Stack
+        # TODO: Initialize the Stack
+        self.num_elements = 0
+        self.items = []
         
     
     def size(self):
-         # TODO: Check the size of the Stack
+        # TODO: Check the size of the Stack
+        return self.num_elements
     
     def push(self, item):
-         # TODO: Push item onto Stack
+        # TODO: Push item onto Stack
+        self.items.append(item)
+        self.num_elements += 1
 
     def pop(self):
-         # TODO: Pop item off of the Stack
+        # TODO: Pop item off of the Stack
+        if self.size() == 0:
+            return None
+        else:
+            self.num_elements -= 1
+            return self.items.pop()
+        
+
 
 MyStack = Stack()
 
