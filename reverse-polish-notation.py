@@ -73,16 +73,15 @@ def evaluate_post_fix(input_list):
             val1 = stack.pop()
             val2 = stack.pop()
             if x == '+':
-                val3 = val1 + val2
+                stack.push(val1 + val2)
             if x == '-':
-                val3 = val1 - val2
+                stack.push(val1 - val2)
             if x == '*':
-                val3 = val1 * val2
+                stack.push(val1 * val2)
             if x == '/':
-                val3 = val1 / val2
-            stack.push(val3)
+                stack.push(int(val2 / val1))
         else:
-            stack.push(x)
+            stack.push(int(x))
     return stack.pop()
     
     
