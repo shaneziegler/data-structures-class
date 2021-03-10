@@ -42,7 +42,7 @@ class Stack:
         return self.num_elements == 0
 
 
-def reverse_stack(stack):
+def reverse_stack2(stack):
     """
     Reverse a given input stack
 
@@ -53,10 +53,13 @@ def reverse_stack(stack):
     """
     
     # TODO: Write the reverse stack function
-    new_stack = Stack()
-    while not stack.is_empty:
+        new_stack = Stack()
+        while not stack.is_empty():
         new_stack.push(stack.pop())
-    return new_stack
+        stack = new_stack
+        return stack
+
+# 
 
 def test_function(test_case):
     stack = Stack()
@@ -82,3 +85,17 @@ test_function(test_case_1)
 test_case_2 = [1]
 test_function(test_case_2)
 
+# def reverse_stack(stack):
+#     holder_stack = Stack()
+#     while not stack.is_empty():
+#         popped_element = stack.pop()
+#         holder_stack.push(popped_element)
+#     _reverse_stack_recursion(stack, holder_stack)
+
+
+# def _reverse_stack_recursion(stack, holder_stack):
+#     if holder_stack.is_empty():
+#         return
+#     popped_element = holder_stack.pop()
+#     _reverse_stack_recursion(stack, holder_stack)
+#     stack.push(popped_element)
