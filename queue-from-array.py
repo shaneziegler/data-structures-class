@@ -1,3 +1,16 @@
+# Functionality
+# Once implemented, our queue will need to have the following functionality:
+
+# enqueue - adds data to the back of the queue
+# dequeue - removes data from the front of the queue
+# front - returns the element at the front of the queue
+# size - returns the number of elements present in the queue
+# is_empty - returns True if there are no elements in the queue, and False otherwise
+# _handle_full_capacity - increases the capacity of the array, for cases in which the queue would otherwise overflow
+# Also, if the queue is empty, dequeue and front operations should return None.
+
+1. Create the queue class and its __init__ method
+
 class Queue:
 
     def __init__(self, initial_size=10):
