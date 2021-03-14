@@ -20,3 +20,7 @@ class Queue:
         self.queue_size = 0
 
     # TODO: Add the enqueue method
+
+    def enqueue(self):
+        pass
+    
