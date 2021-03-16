@@ -19,6 +19,14 @@ class Queue:
             self.tail = self.tail.next
             self.queue_size += 1
         
+    def dequeue(self):
+        if self.is_empty():
+            return None
+        value = self.head.value
+        self.head = self.head.next
+        self.queue_size -= 1
+        return value
+
 
     def size(self):
         return self.queue_size
