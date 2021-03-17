@@ -19,15 +19,30 @@ class Stack:
 class Queue:
     def __init__(self):
         # Code here
+        self.qstack = Stack()
+
         
     def size(self):
          # Code here
+         return self.qstack.size()
         
     def enqueue(self,item):
         # Code here
+        self.qstack.push(item)
+
         
     def dequeue(self):
         # Code here
+        tempstack = Stack()
+        while self.qstack.size() > 0:
+            tempstack.push(self.qstack.pop())
+        value = tempstack.pop()
+        while tempstack.size() > 0:
+            self.qstack.push(tempstack.pop())       
+        return value
+
+
+
 
 
 
