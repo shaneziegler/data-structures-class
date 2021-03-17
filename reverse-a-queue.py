@@ -116,4 +116,3 @@ test_function(test_case_1)
 
 test_case_2 = [1]
 test_function(test_case_2)
-
