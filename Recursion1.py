@@ -16,3 +16,12 @@
 # 25=2∗2∗2∗2∗2∗1 
 # Code
 # Let's look at the recursive function power_of_2, which calculates  2𝑛 .
+
+def power_of_2(n):
+    if n == 0:
+        return 1
+    
+    return 2 * power_of_2(n - 1)
+
+print(power_of_2(5))
+
