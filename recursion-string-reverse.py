@@ -23,10 +23,20 @@ def reverse_string(input):
     
     # TODO: Write your recursive string reverser solution here
     
-    pass
+    # (Recursion) Termination condition / Base condition
+    if len(input) == 0:
+        return ""
+    
+    first_char = input[0]
+    the_rest = input[1:]
+    new_str = reverse_string(the_rest)
+    return new_str + first_char
 
 # Test Cases
     
+
+reverse_string("abc")
+
 print ("Pass" if  ("" == reverse_string("")) else "Fail")
 print ("Pass" if  ("cba" == reverse_string("abc")) else "Fail")
 
