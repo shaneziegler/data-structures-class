@@ -19,11 +19,26 @@ def is_palindrome(input):
     """
     
     # TODO: Write your recursive palindrome checker here
-    
-    
+    if len(input) == 1 or len(input) == 0:
+        return True
+
+    if input[0] == input[len(input)-1]:
+        new_str = input[1:len(input)-1]
+        return True and is_palindrome(new_str)
+    else:
+        return False
         
 
 # Test Cases
+
+print(is_palindrome("shane"))
+print(is_palindrome("a"))
+print(is_palindrome("abba"))
+print(is_palindrome("madam"))
+
+
+
+
 
 print ("Pass" if  (is_palindrome("")) else "Fail")
 print ("Pass" if  (is_palindrome("a")) else "Fail")

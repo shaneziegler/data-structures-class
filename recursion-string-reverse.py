@@ -27,15 +27,19 @@ def reverse_string(input):
     if len(input) == 0:
         return ""
     
-    first_char = input[0]
-    the_rest = input[1:]
-    new_str = reverse_string(the_rest)
-    return new_str + first_char
+    # long version
+    # first_char = input[0]
+    # the_rest = input[1:]
+    # new_str = reverse_string(the_rest)
+    # return reverse_string(the_rest) + first_char
+
+    # compact version
+    return reverse_string(input[1:]) + input[0]
 
 # Test Cases
     
 
-reverse_string("abc")
+print(reverse_string("abc"))
 
 print ("Pass" if  ("" == reverse_string("")) else "Fail")
 print ("Pass" if  ("cba" == reverse_string("abc")) else "Fail")
