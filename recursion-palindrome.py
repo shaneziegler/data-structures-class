@@ -28,6 +28,20 @@ def is_palindrome(input):
     else:
         return False
         
+# Udacity Solution
+# if len(input) <= 1:
+#         return True
+#     else:
+#         first_char = input[0]
+#         last_char = input[-1]
+
+#         # sub_input is input with first and last char removed
+#         sub_input = input[1:-1]
+
+#         # recursive call, if first and last char are identical, else return False
+#         return (first_char == last_char) and is_palindrome(sub_input)
+
+        
 
 # Test Cases
 
