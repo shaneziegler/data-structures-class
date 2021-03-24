@@ -26,11 +26,8 @@ def add_one(arr):
     elif arr[-1] < 9:
         arr[-1] += 1
         return arr
-    
-    # arr[-1] = 0
-    # lastdigit = arr[-1]
-    arr = arr[:-1]
-    arr = addone(arr)
+
+    arr = add_one(arr[:-1])
     arr.append(0)
     return arr
 
@@ -38,15 +35,15 @@ def add_one(arr):
 
 
 
-x = addone([1,2,3])
+x = add_one([1,2,3])
 print(x)
-x = addone([1,2,9])
+x = add_one([1,2,9])
 print(x)
-x = addone([1])
+x = add_one([1])
 print(x)
-x = addone([1,9])
+x = add_one([1,9])
 print(x)
-x = addone([9])
+x = add_one([9])
 print(x)
 
 # A helper function for Test Cases
