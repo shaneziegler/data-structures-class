@@ -20,7 +20,34 @@ def add_one(arr):
     :param: arr - list of digits representing some number x
     return a list with digits represengint (x + 1)
     """
-    pass
+    if len(arr) == 0:
+        arr = [1]
+        return arr
+    elif arr[-1] < 9:
+        arr[-1] += 1
+        return arr
+    
+    # arr[-1] = 0
+    # lastdigit = arr[-1]
+    arr = arr[:-1]
+    arr = addone(arr)
+    arr.append(0)
+    return arr
+
+
+
+
+
+x = addone([1,2,3])
+print(x)
+x = addone([1,2,9])
+print(x)
+x = addone([1])
+print(x)
+x = addone([1,9])
+print(x)
+x = addone([9])
+print(x)
 
 # A helper function for Test Cases
 def test_function(test_case):

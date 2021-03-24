@@ -11,7 +11,7 @@ def add_one(arr):
 
 
 # A helper function for Test Cases
-def add_one(arr):
+def test_function(arr):
     """
     :param: arr - list of digits representing some number x
     return a list with digits represengint (x + 1)
