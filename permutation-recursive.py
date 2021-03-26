@@ -37,8 +37,14 @@ def permute(inputList):
     Args: myList: list of items to be permuted
     Returns: list of permutation with each permuted item being represented by a list
     """
-    x = inputList
-    return x
+    if inputList == []:
+        compoundList = [[]]
+        return compoundList
+
+    x = inputList[:-1]
+    compoundList[0][0] = x
+    return permute(compoundList)
+
 
 # Test Cases 
 
