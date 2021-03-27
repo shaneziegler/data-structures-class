@@ -37,13 +37,22 @@ def permute(inputList):
     Args: myList: list of items to be permuted
     Returns: list of permutation with each permuted item being represented by a list
     """
-    if inputList == []:
-        compoundList = [[]]
-        return compoundList
+    orgList = copy.deepcopy(inputList)
 
-    x = inputList[:-1]
-    compoundList[0][0] = x
-    return permute(compoundList)
+    compoundList = []
+
+    if inputList == []:
+        compoundList.insert(0,[])
+        # return compoundList
+    else:
+        x = inputList.pop(-1)
+        compoundList = permute(inputList)
+        compoundList[0].insert(0,x)
+        print(compoundList)
+    # z = orgList + compoundList
+    # y = compoundList.append(orgList)
+    # f = compoundList.insert(0,orgList)
+    return compoundList
 
 
 # Test Cases 
