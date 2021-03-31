@@ -49,7 +49,8 @@ def permute(inputList):
             for perm in perms:
                 # result = copy.deepcopy(plist)
                 perm.append(x)
-            result.extend(perms)
+            # result.extend(perms)
+            result = result + perms
             inputList.append(x)
         return result
 
