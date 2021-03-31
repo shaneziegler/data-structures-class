@@ -32,27 +32,31 @@
 
 import copy
 
+
 def permute(inputList):
-    """
-    Args: myList: list of items to be permuted
-    Returns: list of permutation with each permuted item being represented by a list
-    """
-    orgList = copy.deepcopy(inputList)
-
-    compoundList = []
-
-    if inputList == []:
-        compoundList.insert(0,[])
-        # return compoundList
+    if len(inputList) == 0:
+        return [[]]
+    elif len(inputList) == 1:
+        return [copy.deepcopy(inputList)]
     else:
-        x = inputList.pop(-1)
-        compoundList = permute(inputList)
-        compoundList[0].insert(0,x)
-        print(compoundList)
-    # z = orgList + compoundList
-    # y = compoundList.append(orgList)
-    # f = compoundList.insert(0,orgList)
-    return compoundList
+        result =[]
+        for i in range(len(inputList)):
+            x = inputList.pop(0)
+            perms = permute(inputList)
+                # result = perm[:i] + list(x)
+                # result = perm[:i].append(x)
+                # result = result + perm[i+1:]
+            for perm in perms:
+                # result = copy.deepcopy(plist)
+                perm.append(x)
+            result.extend(perms)
+            inputList.append(x)
+        return result
+
+
+
+
+
 
 
 # Test Cases 
@@ -81,6 +85,11 @@ def check_output(output, expected_output):
     o.sort()
     e.sort()
     return o == e
+
+r = permute([])
+r = permute([1])
+r = permute([1,2,3])
+
 
 print ("Pass" if  (check_output(permute([]), [[]])) else "Fail")
 print ("Pass" if  (check_output(permute([0]), [[0]])) else "Fail")
