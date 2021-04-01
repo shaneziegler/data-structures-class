@@ -56,8 +56,6 @@ def permute_org(inputList):
 
 
 def permute(inputList):
-    # if len(inputList) == 0:
-    #     return [[]]
     if len(inputList) == 1 or len(inputList) == 0:
         return [copy.deepcopy(inputList)]
     else:
