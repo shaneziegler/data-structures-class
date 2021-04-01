@@ -33,7 +33,7 @@
 import copy
 
 
-def permute(inputList):
+def permute_org(inputList):
     if len(inputList) == 0:
         return [[]]
     elif len(inputList) == 1:
@@ -55,8 +55,21 @@ def permute(inputList):
         return result
 
 
-
-
+def permute(inputList):
+    if len(inputList) == 0:
+        return [[]]
+    elif len(inputList) == 1:
+        return [copy.deepcopy(inputList)]
+    else:
+        result =[]
+        for _ in range(len(inputList)):
+            x = inputList.pop(-1)
+            perms = permute(inputList)
+            for perm in perms:
+                perm.insert(0,x)
+            result += perms
+            inputList.insert(0,x)
+        return result
 
 
 
