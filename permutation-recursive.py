@@ -143,7 +143,7 @@ def permute_udacity(inputList):
 r = permute([])
 r = permute([1])
 r = permute([1,2,3])
-
+r = permute([1,2,3,4, 5])
 
 print ("Pass" if  (check_output(permute([]), [[]])) else "Fail")
 print ("Pass" if  (check_output(permute([0]), [[0]])) else "Fail")
