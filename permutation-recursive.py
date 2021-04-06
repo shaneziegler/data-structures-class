@@ -55,9 +55,26 @@ def permute_org(inputList):
         return result
 
 
-def permute(inputList):
+def permute_me(inputList):
     if len(inputList) == 1 or len(inputList) == 0:
-        return [copy.deepcopy(inputList)]
+        # return [copy.deepcopy(inputList)] works
+        # a = inputList
+        # b = [inputList]
+        # c = copy.deepcopy(inputList)
+        # d = [copy.deepcopy(inputList)]
+        # e = inputList[:]
+        f = [inputList[:]] # works
+
+        # print(hex(id(inputList)))
+        # print(hex(id(a)))
+        # print(hex(id(b)))
+        # print(hex(id(b[0])))
+        # print(hex(id(c)))
+        # print(hex(id(d)))
+        # print(hex(id(e)))
+        # print(hex(id(f)))
+
+        return f
     else:
         result =[]
         for _ in range(len(inputList)):
@@ -105,7 +122,7 @@ Returns: compound list: list of permutation with each permuted item being repres
 """
 import copy                                # We will use `deepcopy()` function from the `copy` module
 
-def permute_udacity(inputList):
+def permute(inputList):
     
     # a compound list
     finalCompoundList = []                  # compoundList to be returned 
@@ -143,7 +160,7 @@ def permute_udacity(inputList):
 r = permute([])
 r = permute([1])
 r = permute([1,2,3])
-r = permute([1,2,3,4, 5])
+# r = permute([1,2,3,4, 5])
 
 print ("Pass" if  (check_output(permute([]), [[]])) else "Fail")
 print ("Pass" if  (check_output(permute([0]), [[0]])) else "Fail")
