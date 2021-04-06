@@ -168,11 +168,7 @@ def permute(inputList):
     else:
         finalCompoundList = []    
         first_element = inputList[0]        # Pick one element to be permuted
-        after_first = slice(1, None)        # `after_first` is an object of type 'slice' class
-        rest_list = inputList[after_first]  # convert the `slice` object into a list
-        temo_list = inputList[1:]
-        # Recursive function call
-        sub_compoundList = permute(rest_list)
+        sub_compoundList = permute(inputList[1:])
         
         # Iterate through all lists of the compoundList returned from previous call
         for aList in sub_compoundList:
@@ -181,20 +177,21 @@ def permute(inputList):
             for j in range(0, len(aList) + 1): 
                 
                 # A normal copy/assignment will change aList[j] element
-                bList = copy.deepcopy(aList)  
+                bList = aList[:]
                 
                 # A new list with size +1 as compared to aList
                 # is created by inserting the `first_element` at position j in bList
                 bList.insert(j, first_element)
                 
                 # Append the newly created list to the finalCompoundList
-                finalCompoundList.append(bList)
+                finalCompoundList += [bList]
                 
     return finalCompoundList
 
 r = permute([])
 r = permute([1])
 r = permute([1,2,3])
+r = permute_me([1,2,3])
 # r = permute([1,2,3,4, 5])
 
 print ("Pass" if  (check_output(permute([]), [[]])) else "Fail")
