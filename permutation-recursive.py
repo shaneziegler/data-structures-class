@@ -57,24 +57,7 @@ def permute_org(inputList):
 
 def permute_me(inputList):
     if len(inputList) == 1 or len(inputList) == 0:
-        # return [copy.deepcopy(inputList)] works
-        # a = inputList
-        # b = [inputList]
-        # c = copy.deepcopy(inputList)
-        # d = [copy.deepcopy(inputList)]
-        # e = inputList[:]
-        f = [inputList[:]] # works
-
-        # print(hex(id(inputList)))
-        # print(hex(id(a)))
-        # print(hex(id(b)))
-        # print(hex(id(b[0])))
-        # print(hex(id(c)))
-        # print(hex(id(d)))
-        # print(hex(id(e)))
-        # print(hex(id(f)))
-
-        return f
+        return [inputList[:]]
     else:
         result =[]
         for _ in range(len(inputList)):
@@ -189,13 +172,15 @@ def permute(inputList):
     return finalCompoundList
 
 r = permute([])
-r = permute([1])
+r = permute([0])
+r = permute([0,1])
 r = permute([1,2,3])
-r = permute_me([1,2,3])
 # r = permute([1,2,3,4, 5])
 
 print ("Pass" if  (check_output(permute([]), [[]])) else "Fail")
 print ("Pass" if  (check_output(permute([0]), [[0]])) else "Fail")
 print ("Pass" if  (check_output(permute([0, 1]), [[0, 1], [1, 0]])) else "Fail")
 print ("Pass" if  (check_output(permute([0, 1, 2]), [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]])) else "Fail")
+
+
 
