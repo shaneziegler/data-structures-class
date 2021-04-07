@@ -44,7 +44,39 @@ def permutations(string):
     Return - list of all permutations of the input string
     TODO: complete this function to return a list of all permutations of the string
     """
-    pass
+    if len(string) == 0:
+        return ''
+    else:
+        list = []
+        last_char = string[len(string)-1:]
+        new_string = string[:len(string)-1]
+        perms = permutations(new_string)
+        perms = 'xy'
+        for perm in perms:
+            for i in range(0,len(perm)+1):
+                a = perm[:i+1]
+                b = perm[i+1:]
+                c = perm[i:]
+                new_perm = perm[:i] + last_char + perm[i+1:] 
+                list = list + new_perm
+        return list               
+
+def permutations_dontwork(inputList):
+    if len(inputList) == 1 or len(inputList) == 0:
+        return [inputList[:]]
+    else:
+        result =[]
+        for _ in range(len(inputList)):
+            last_char = inputList[len(inputList)-1:]
+            inputList = inputList[:len(inputList)-1]
+            perms = permutations(inputList)
+            for perm in perms:
+                perm = last_char + perm
+            result += perms
+            inputList = last_char + inputList
+        return result
+
+
 
 def test_function(test_case):
     string = test_case[0]
