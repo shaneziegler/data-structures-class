@@ -58,21 +58,40 @@ def permutations(string):
                 # list += [new_perm] also works
         return list                   
 
-def permutations_dontwork(inputList):
-    if len(inputList) == 1 or len(inputList) == 0:
-        return [inputList[:]]
-    else:
-        result =[]
-        for _ in range(len(inputList)):
-            last_char = inputList[len(inputList)-1:]
-            inputList = inputList[:len(inputList)-1]
-            perms = permutations(inputList)
-            for perm in perms:
-                perm = last_char + perm
-            result += perms
-            inputList = last_char + inputList
-        return result
+# Recursive Solution
+"""
+Param - input string
+Return - compound object: list of all permutations of the input string
+"""
 
+def permutations_udacity(string):
+    return return_permutations(string, 0)
+    
+def return_permutations(string, index):
+    # output to be returned 
+    output = list()
+    
+    # Terminaiton / Base condition
+    if index >= len(string):
+        return [""]
+    
+    # Recursive function call
+    small_output = return_permutations(string, index + 1)
+    
+    # Pick a character
+    current_char = string[index] 
+    
+    # Iterate over each sub-string available in the list returned from previous call
+    for subString in small_output:
+        
+        # place the current character at different indices of the sub-string
+        for index in range(len(small_output[0]) + 1):
+            
+            # Make use of the sub-string of previous output, to create a new sub-string. 
+            new_subString = subString[0: index] + current_char + subString[index:]
+            output.append(new_subString)
+
+    return output
 
 
 def test_function(test_case):
