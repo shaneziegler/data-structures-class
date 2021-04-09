@@ -18,14 +18,34 @@ def get_characters(num):
     else:
         return ""
 
+def num_rec(input_list):   # ['abc', 'def']
+    if len(input_list) == 1:
+        return input_list[:]
+    else:
+        output_list = []
+        first_key = input_list.pop(0)
+        perms = num_rec(input_list)
+        for perm in perms:
+            for i in range(len(perm)+1):
+                possible = perm[i]
+                output_list.append(possible)
+        print(first_key)
+        return output_list
 
 def keypad(num):
-    str_num = string(num)
+    str_num = str(num)
     input_list = []
+    olist = []
+    temp_list = []
     for char in str_num:
         input_list.append(char)
+    for num in str_num:
+        temp_list.append(get_characters(int(num)))
+    
+    olist = num_rec(temp_list)
 
     print("sdsd")      
+    return output_list
 
 def test_keypad(input, expected_output):
     if sorted(keypad(input)) == expected_output:
