@@ -26,11 +26,11 @@ def num_rec(input_list):   # ['abc', 'def']
         first_key = input_list.pop(0)
         perms = num_rec(input_list)
         for perm in perms:
-            for i in range(len(perm)+1):
+            for i in range(len(perm)):
                 possible = perm[i]
                 output_list.append(possible)
         print(first_key)
-        return output_list
+    return output_list
 
 def keypad(num):
     str_num = str(num)
@@ -45,7 +45,7 @@ def keypad(num):
     olist = num_rec(temp_list)
 
     print("sdsd")      
-    return output_list
+    return olist
 
 def test_keypad(input, expected_output):
     if sorted(keypad(input)) == expected_output:
